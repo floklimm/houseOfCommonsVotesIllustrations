@@ -33,7 +33,7 @@ vote8 = readVoteFile("./../rawData/Division662.csv")
 
 # 2) construct a bipartite network from this data
 # a) First, all members as an index
-allMembers= pd.concat([vote1, vote2, vote3, vote4,vote5,vote6,vote7,vote8]).drop_duplicates().drop(['Vote'],axis='columns')
+allMembers= pd.concat([vote1, vote2, vote3, vote4,vote5,vote6,vote7,vote8]).drop_duplicates(subset=['Member']).drop(['Vote'],axis='columns')
 
 uniqueParties = allMembers['Party'].unique().tolist()
 
@@ -74,7 +74,7 @@ for i in range(1,9):
         node_dict["constituency"] = 'Customs union'
     elif i==5:
         node_dict["name"] = "Motion K"
-        node_dict["constituency"] = 'Labour&#39; alternative plan'
+        node_dict["constituency"] = 'Labour&#39;s alternative plan'
     elif i==6:
         node_dict["name"] = "Motion L"
         node_dict["constituency"] = 'Revocation to avoid no deal'    

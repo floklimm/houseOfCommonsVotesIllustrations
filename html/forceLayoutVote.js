@@ -9,7 +9,7 @@ var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody().distanceMin(20).distanceMax(150).strength(-20))
+    .force("charge", d3.forceManyBody().distanceMin(10).distanceMax(300).strength(-20))
     .force("center", d3.forceCenter(width / 2, height / 2));
 
 // Define the div for the tooltip
@@ -32,8 +32,24 @@ d3.json(JSONFILENAME, function(error, graph) {
     .selectAll("circle")
     .data(graph.nodes)
     .enter().append("circle")
-    .attr("r", 10)
+    .attr("r", function(d) {
+            if (d.group == 9) {return 10}
+            else 	{ return 4}
+        ;})
     .attr("fill", function(d) { return color(d.group); })
+    .on("mouseover", function(d) {
+            div.transition()
+                .duration(100)
+                .style("opacity", .9);
+            div	.html(d.name)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            })
+    .on("mouseout", function(d) {
+                    div.transition()
+                        .duration(1000)
+                        .style("opacity", .0);
+                    })
     .call(d3.drag()
     .on("start", dragstarted)
     .on("drag", dragged)

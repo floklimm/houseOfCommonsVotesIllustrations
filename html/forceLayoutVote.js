@@ -96,6 +96,65 @@ d3.json(JSONFILENAME, function(error, graph) {
   }
 });
 
+
+// adding legend texts (there must be an easier way...)
+svg.append("g").append("text")
+    .attr("x", 5)
+    .attr("y", 5)
+    .attr("dy", ".35em")
+    .text("Party membership:");
+svg.append("g").append("text")
+        .attr("x", 20)
+        .attr("y", 30)
+        .attr("dy", ".35em")
+        .text("Conservative")
+        .style("fill", "#0087dc");
+svg.append("g").append("text")
+                .attr("x", 20)
+                .attr("y", 55)
+                .attr("dy", ".35em")
+                .text("Labour")
+                .style("fill", "#d50000");
+svg.append("g").append("text")
+  .attr("x", 20)
+  .attr("y", 80)
+  .attr("dy", ".35em")
+  .text("Independent")
+  .style("fill", "#808080");
+
+
+  svg.append("g").append("text")
+          .attr("x", 20)
+          .attr("y", 105)
+          .attr("dy", ".35em")
+          .text("Plaid Cymru")
+          .style("fill", "#3F8428");
+  svg.append("g").append("text")
+                  .attr("x", 20)
+                  .attr("y", 130)
+                  .attr("dy", ".35em")
+                  .text("Scottish National Party")
+                  .style("fill", "#FFF95D");
+  svg.append("g").append("text")
+    .attr("x", 20)
+    .attr("y", 155)
+    .attr("dy", ".35em")
+    .text("Green Party")
+    .style("fill", "#008066");
+
+
+    svg.append("g").append("text")
+            .attr("x", 20)
+            .attr("y", 180)
+            .attr("dy", ".35em")
+            .text("Democratic Unionist Party")
+            .style("fill", "#6ed700");
+
+
+//.domain(["Conservative", "Labour", "Independent","Plaid Cymru","Liberal Democrat","Scottish National Party","Green Party","Democratic Unionist Party","VOTE"])
+//.range(["#0087dc", "#d50000" , "#808080","#3F8428", "#FDBB30" , "#FFF95D","#008066", "#6ed700" , "#000000"]);
+
+
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
   d.fx = d.x;

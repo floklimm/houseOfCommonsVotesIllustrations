@@ -48,7 +48,9 @@ d3.json(JSONFILENAME, function(error, graph) {
             div.transition()
                 .duration(100)
                 .style("opacity", .9);
-            div	.html(d.name)
+
+
+            div.html(d.name + " ("  +  d.constituency + ")")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -63,7 +65,7 @@ d3.json(JSONFILENAME, function(error, graph) {
     .on("end", dragended))
     ;
 
-    
+
 
 
   simulation

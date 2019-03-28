@@ -45,6 +45,7 @@ for index, row in allMembers.iterrows():
     node_dict["party"] = row["Party"] # party membership 
     node_dict["group"] = uniqueParties.index(row["Party"]) # party membership as an itneger
     node_dict["name"] = row["Member"]
+    node_dict["constituency"] = row["Constituency"]
     
     node_list.append(node_dict) # add it to the dictionary
 
@@ -57,9 +58,40 @@ for i in range(1,9):
     # first, construct the node for this vote
     node_dict = {} # create an empty dictionary for this node
     node_dict["id"] = "V" + str(i) # index for this vote
-    node_dict["name"] = "Vote" + str(i) 
+    
+    # an ugly if section to define the names of the votes
+    if i==1:
+        node_dict["name"] = "Motion B"
+        node_dict["constituency"] = 'No deal'
+    elif i==2:
+        node_dict["name"] = "Motion D"
+        node_dict["constituency"] = 'Common market 2.0'
+    elif i==3:
+        node_dict["name"] = "Motion H"
+        node_dict["constituency"] = 'EFTA and EEA'
+    elif i==4:
+        node_dict["name"] = "Motion J"
+        node_dict["constituency"] = 'Customs union'
+    elif i==5:
+        node_dict["name"] = "Motion K"
+        node_dict["constituency"] = 'Labour&#39; alternative plan'
+    elif i==6:
+        node_dict["name"] = "Motion L"
+        node_dict["constituency"] = 'Revocation to avoid no deal'    
+    elif i==7:
+        node_dict["name"] = "Motion M"
+        node_dict["constituency"] = 'Confirmatory public vote'  
+    elif i==8:
+        node_dict["name"] = "Motion O"
+        node_dict["constituency"] = 'Contingent preferential arrangements'  
+    else:
+       node_dict["name"] = "Vote" + str(i)
+       
+       node_dict["constituency"] = ''
+    
     node_dict["group"] = 9  # the votes get group nine
     node_dict["party"] = "VOTE" # no party memebrship
+    
     node_list.append(node_dict) # add it to the dictionary
     
   

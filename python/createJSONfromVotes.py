@@ -35,12 +35,15 @@ vote8 = readVoteFile("./../rawData/Division662.csv")
 # a) First, all members as an index
 allMembers= pd.concat([vote1, vote2, vote3, vote4,vote5,vote6,vote7,vote8]).drop_duplicates().drop(['Vote'],axis='columns')
 
+uniqueParties = allMembers['Party'].unique().tolist()
 
 node_list = [] # an emtpty node list
 # iterate over all members
 for index, row in allMembers.iterrows():
     node_dict = {} # create an empty dictionary for this node
-    node_dict["id"] = "M" + str(index) # idnex for this member
+    node_dict["id"] = "M" + str(index) # index for this member
+    node_dict["party"] = row["Party"] # party membership 
+    node_dict["group"] = uniqueParties.index(row["Party"]) # party membership as an itneger
     node_dict["name"] = row["Member"]
     
     node_list.append(node_dict) # add it to the dictionary
@@ -55,6 +58,7 @@ for i in range(1,9):
     node_dict = {} # create an empty dictionary for this node
     node_dict["id"] = "V" + str(i) # index for this vote
     node_dict["name"] = "Vote" + str(i) 
+    node_dict["group"] = 9  # the votes get group nine
     node_list.append(node_dict) # add it to the dictionary
     
   

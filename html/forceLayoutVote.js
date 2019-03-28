@@ -33,6 +33,7 @@ d3.json(JSONFILENAME, function(error, graph) {
     .data(graph.nodes)
     .enter().append("circle")
     .attr("r", 10)
+    .attr("fill", function(d) { return color(d.group); })
     .call(d3.drag()
     .on("start", dragstarted)
     .on("drag", dragged)

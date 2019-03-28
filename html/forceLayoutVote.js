@@ -141,14 +141,19 @@ svg.append("g").append("text")
     .attr("dy", ".35em")
     .text("Green Party")
     .style("fill", "#008066");
-
-
     svg.append("g").append("text")
             .attr("x", 20)
             .attr("y", 180)
             .attr("dy", ".35em")
             .text("Democratic Unionist Party")
             .style("fill", "#6ed700");
+
+    svg.append("g").append("text")
+            .attr("x", 20)
+            .attr("y", 205)
+            .attr("dy", ".35em")
+            .text("Liberal Democrats")
+            .style("fill", "#FDBB30");
 
 
 //.domain(["Conservative", "Labour", "Independent","Plaid Cymru","Liberal Democrat","Scottish National Party","Green Party","Democratic Unionist Party","VOTE"])

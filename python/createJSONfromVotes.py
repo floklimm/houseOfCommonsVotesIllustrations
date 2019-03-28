@@ -64,7 +64,7 @@ for i in range(1,9):
     # second, construct the edges
     for index, row in voteFileInterested.iterrows(): 
         link_dict = {} # empty dictionary for this edge
-        link_dict["source"] = "P" + str(index) # attached to this member voting Aye
+        link_dict["source"] = "M" + str(index) # attached to this member voting Aye
         link_dict["target"] = "V" + str(i) # index for this vote
         link_list.append(link_dict)    # save it into the list
 

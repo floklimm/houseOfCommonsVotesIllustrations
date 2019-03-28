@@ -59,6 +59,7 @@ for i in range(1,9):
     node_dict["id"] = "V" + str(i) # index for this vote
     node_dict["name"] = "Vote" + str(i) 
     node_dict["group"] = 9  # the votes get group nine
+    node_dict["party"] = "VOTE" # no party memebrship
     node_list.append(node_dict) # add it to the dictionary
     
   

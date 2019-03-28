@@ -5,7 +5,11 @@ var svg = d3.select("svg"),
     height = +svg.attr("height"),
     radius = 30;
 
-var color = d3.scaleOrdinal(d3.schemeCategory10);
+//var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+var color = d3.scaleOrdinal() // D3 Version 4
+  .domain(["Conservative", "Labour", "Independent","Plaid Cymru","Liberal Democrat","Scottish National Party","Green Party","Democratic Unionist Party","VOTE"])
+  .range(["#0087dc", "#d50000" , "#808080","#3F8428", "#FDBB30" , "#FFF95D","#008066", "#6ed700" , "#000000"]);
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -16,6 +20,9 @@ var simulation = d3.forceSimulation()
     var div = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
+
+        // add a legend
+
 
 d3.json(JSONFILENAME, function(error, graph) {
   if (error) throw error;
@@ -36,7 +43,7 @@ d3.json(JSONFILENAME, function(error, graph) {
             if (d.group == 9) {return 10}
             else 	{ return 4}
         ;})
-    .attr("fill", function(d) { return color(d.group); })
+    .attr("fill", function(d) { return color(d.party); })
     .on("mouseover", function(d) {
             div.transition()
                 .duration(100)
@@ -55,6 +62,8 @@ d3.json(JSONFILENAME, function(error, graph) {
     .on("drag", dragged)
     .on("end", dragended))
     ;
+
+    
 
 
   simulation

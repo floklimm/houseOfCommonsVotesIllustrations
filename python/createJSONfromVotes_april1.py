@@ -25,10 +25,10 @@ vote1 = readVoteFile("./../rawData/Division655.csv")
 vote2 = readVoteFile("./../rawData/Division656.csv")
 vote3 = readVoteFile("./../rawData/Division657.csv")
 vote4 = readVoteFile("./../rawData/Division658.csv")
-vote5 = readVoteFile("./../rawData/Division659.csv")
-vote6 = readVoteFile("./../rawData/Division660.csv")
-vote7 = readVoteFile("./../rawData/Division661.csv")
-vote8 = readVoteFile("./../rawData/Division662.csv")
+#vote5 = readVoteFile("./../rawData/Division659.csv")
+#vote6 = readVoteFile("./../rawData/Division660.csv")
+#vote7 = readVoteFile("./../rawData/Division661.csv")
+#vote8 = readVoteFile("./../rawData/Division662.csv")
 
 
 # 2) construct a bipartite network from this data
@@ -61,29 +61,29 @@ for i in range(1,9):
     
     # an ugly if section to define the names of the votes
     if i==1:
-        node_dict["name"] = "Motion B"
-        node_dict["constituency"] = 'No deal'
+        node_dict["name"] = "Motion C"
+        node_dict["constituency"] = 'Customs Union'
     elif i==2:
         node_dict["name"] = "Motion D"
         node_dict["constituency"] = 'Common market 2.0'
     elif i==3:
-        node_dict["name"] = "Motion H"
-        node_dict["constituency"] = 'EFTA and EEA'
+        node_dict["name"] = "Motion E"
+        node_dict["constituency"] = 'Confirmatory Public Vote'
     elif i==4:
-        node_dict["name"] = "Motion J"
-        node_dict["constituency"] = 'Customs union'
-    elif i==5:
-        node_dict["name"] = "Motion K"
-        node_dict["constituency"] = 'Labour&#39;s alternative plan'
-    elif i==6:
-        node_dict["name"] = "Motion L"
-        node_dict["constituency"] = 'Revocation to avoid no deal'    
-    elif i==7:
-        node_dict["name"] = "Motion M"
-        node_dict["constituency"] = 'Confirmatory public vote'  
-    elif i==8:
-        node_dict["name"] = "Motion O"
-        node_dict["constituency"] = 'Contingent preferential arrangements'  
+        node_dict["name"] = "Motion G"
+        node_dict["constituency"] = 'Parliamentary Supremacy'
+#    elif i==5:
+#        node_dict["name"] = "Motion K"
+#        node_dict["constituency"] = 'Labour&#39;s alternative plan'
+#    elif i==6:
+#        node_dict["name"] = "Motion L"
+#        node_dict["constituency"] = 'Revocation to avoid no deal'    
+#    elif i==7:
+#        node_dict["name"] = "Motion M"
+#        node_dict["constituency"] = 'Confirmatory public vote'  
+#    elif i==8:
+#        node_dict["name"] = "Motion O"
+#        node_dict["constituency"] = 'Contingent preferential arrangements'  
     else:
        node_dict["name"] = "Vote" + str(i)
        

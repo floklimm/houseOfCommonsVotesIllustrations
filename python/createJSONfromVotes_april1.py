@@ -11,7 +11,7 @@ import numpy as np
 import json # for writing the json
 
 
-outputJSONFileName='./../html/voteFileApril1.json'
+outputJSONFileName='./../html/voteFileAprilwPM.json'
 
 # 0) Functions we need later
 def readVoteFile( filename ):
@@ -25,6 +25,7 @@ vote1 = readVoteFile("./../rawData/Division666.csv")
 vote2 = readVoteFile("./../rawData/Division667.csv")
 vote3 = readVoteFile("./../rawData/Division668.csv")
 vote4 = readVoteFile("./../rawData/Division669.csv")
+vote5 = readVoteFile("./../rawData/Division664.csv")
 #vote5 = readVoteFile("./../rawData/Division659.csv")
 #vote6 = readVoteFile("./../rawData/Division660.csv")
 #vote7 = readVoteFile("./../rawData/Division661.csv")
@@ -33,7 +34,7 @@ vote4 = readVoteFile("./../rawData/Division669.csv")
 
 # 2) construct a bipartite network from this data
 # a) First, all members as an index
-allMembers= pd.concat([vote1, vote2, vote3, vote4,vote5,vote6,vote7,vote8]).drop_duplicates(subset=['Member']).drop(['Vote'],axis='columns')
+allMembers= pd.concat([vote1, vote2, vote3, vote4,vote5]).drop_duplicates(subset=['Member']).drop(['Vote'],axis='columns')
 
 uniqueParties = allMembers['Party'].unique().tolist()
 
@@ -54,7 +55,7 @@ for index, row in allMembers.iterrows():
 # add nodes for the votes and construct links to all aye voters
 link_list = [] # empty link list
 
-for i in range(1,9):
+for i in range(1,6):
     # first, construct the node for this vote
     node_dict = {} # create an empty dictionary for this node
     node_dict["id"] = "V" + str(i) # index for this vote
@@ -72,9 +73,9 @@ for i in range(1,9):
     elif i==4:
         node_dict["name"] = "Motion G"
         node_dict["constituency"] = 'Parliamentary Supremacy'
-#    elif i==5:
-#        node_dict["name"] = "Motion K"
-#        node_dict["constituency"] = 'Labour&#39;s alternative plan'
+    elif i==5:
+        node_dict["name"] = "Meaningful Vote 3"
+        node_dict["constituency"] = 'PM&#39;s Deal'
 #    elif i==6:
 #        node_dict["name"] = "Motion L"
 #        node_dict["constituency"] = 'Revocation to avoid no deal'    

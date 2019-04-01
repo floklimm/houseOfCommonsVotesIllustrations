@@ -21,10 +21,10 @@ def readVoteFile( filename ):
     return listOfAye
 
 # 1) get the data for all eight votes
-vote1 = readVoteFile("./../rawData/Division655.csv")
-vote2 = readVoteFile("./../rawData/Division656.csv")
-vote3 = readVoteFile("./../rawData/Division657.csv")
-vote4 = readVoteFile("./../rawData/Division658.csv")
+vote1 = readVoteFile("./../rawData/Division666.csv")
+vote2 = readVoteFile("./../rawData/Division667.csv")
+vote3 = readVoteFile("./../rawData/Division668.csv")
+vote4 = readVoteFile("./../rawData/Division669.csv")
 #vote5 = readVoteFile("./../rawData/Division659.csv")
 #vote6 = readVoteFile("./../rawData/Division660.csv")
 #vote7 = readVoteFile("./../rawData/Division661.csv")
